@@ -1,0 +1,236 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Задание 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "test_string = input('Введите строку ')\n",
+    "if len(test_string) % 2 == 0:\n",
+    "    # ввел переменные, что бы не превращать в бесконечную лапшу print да и для отладки удобно\n",
+    "    a = len(test_string)//2-1\n",
+    "    b = len(test_string)//2+1\n",
+    "    c = len(test_string)//2\n",
+    "    print(test_string[a:b])\n",
+    "else:\n",
+    "    print(test_string[c])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Задание 2"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# тут все элементарно\n",
+    "sum_init = int(input('Введите число '))\n",
+    "sum_final = 0\n",
+    "while sum_init != 0:\n",
+    "    sum_final += sum_init\n",
+    "    sum_init = int(input('Введите число '))\n",
+    "else:\n",
+    "    print(sum_final)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Задание 3"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# в разумных пределах ограничения на запись нет, можно писать через пробел или запятую или запятую и пробел\n",
+    "string_boys = input('Введите имена мальчиков ')\n",
+    "string_girls = input('Введите имена девочек ')\n",
+    "\n",
+    "# на всякий случай уберем потенциальные запятые, если кто-то их поставил\n",
+    "list_boys = string_boys.replace(',', ' ').split()\n",
+    "list_girls = string_girls.replace(',', ' ').split()\n",
+    "if len(list_boys) != len(list_girls):\n",
+    "    print('Внимание, кто-то может остаться без пары!')\n",
+    "else:\n",
+    "    sorted(list_boys)\n",
+    "    sorted(list_girls)\n",
+    "    print('Идеальные пары:')\n",
+    "    for i in range(0, len(list_boys)):\n",
+    "        print(list_boys[i], ' и ', list_girls[i])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Задание 4"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# мне показалось скучным использовать готовый датесет и я решил\n",
+    "# сформировать его интерактивно\n",
+    "running = True\n",
+    "data_set = []\n",
+    "while running:\n",
+    "    coutrie_name = input('Введите название страны ')\n",
+    "    coutrie_climat = input('Введите ряд температур ')\n",
+    "    list_coutrie_climat = coutrie_climat.replace(',', ' ').split()\n",
+    "    data_set.append(coutrie_name)\n",
+    "    data_set.append(list_coutrie_climat)\n",
+    "    more_coutries = input('Хотите продолжить ввод? да/нет ')\n",
+    "    running = (more_coutries == 'да')\n",
+    "# отсюда начинается, собственно, задание\n",
+    "# все манипуляции мы честно производим с нашим готовым датасетом\n",
+    "# конечно смешно разбирать его обратно, но, заодно, мы получаем\n",
+    "# метод на любое количество стран, а не только четыре\n",
+    "coutries_list = []\n",
+    "countries_climat = []\n",
+    "for i in range(0, len(data_set)):\n",
+    "    if type(data_set[i]) is str:\n",
+    "        coutries_list.append(data_set[i])\n",
+    "    else:\n",
+    "        countries_climat.append(data_set[i])\n",
+    "# разобрали, теперь посчитаем\n",
+    "print('Средняя температура по странам:')\n",
+    "countrie_climat = []\n",
+    "for i in range(0, len(countries_climat)):\n",
+    "    mediat_climat = 0\n",
+    "    for j in range(0, len(countries_climat[i])):\n",
+    "        mediat_climat += int(countries_climat[i][j])\n",
+    "    countrie_climat.append(mediat_climat)\n",
+    "    print(coutries_list[i], ' - ', countrie_climat[i] /\n",
+    "          len(countrie_climat), ' C')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Задание 5"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# так как писать датасет я уже попробовал в предыдущей задаче,\n",
+    "# тут мне то делать лениво да и излошне\n",
+    "# в конце концов логи откуда-то готовые падают\n",
+    "stream = [\n",
+    "    '2018-01-01,user1,3',\n",
+    "    '2018-01-07,user1,4',\n",
+    "    '2018-03-29,user1,1',\n",
+    "    '2018-04-04,user1,13',\n",
+    "    '2018-01-05,user2,7',\n",
+    "    '2018-06-14,user3,4',\n",
+    "    '2018-07-02,user3,10',\n",
+    "    '2018-03-21,user4,19',\n",
+    "    '2018-03-22,user4,4',\n",
+    "    '2018-04-22,user4,8',\n",
+    "    '2018-05-03,user4,9',\n",
+    "    '2018-05-11,user4,11',\n",
+    "]\n",
+    "# сначала распотрошим лог и выколупаем оттуда всех юзеров и все обращения\n",
+    "# ох как весело бы это все делать регэкспами, но я их сам плохо помню\n",
+    "# порежем каждую строку\n",
+    "general_list = []\n",
+    "for i in range(0, len(stream)):\n",
+    "    general_list.append(stream[i].split(','))\n",
+    "# разгладим\n",
+    "general_list = sum(general_list, [])\n",
+    "# и выкинем весь мусор и все посортируем\n",
+    "# наверное, можно даже без регэкспов это сделать как-то красивее\n",
+    "# но я тупо применил грязных хак выколупывания по номеру\n",
+    "user_list = []\n",
+    "user_list.append(general_list[1])\n",
+    "for i in range(1, len(general_list)-4, 3):\n",
+    "    user_list.append(general_list[i+3])\n",
+    "browsing_list = []\n",
+    "browsing_list.append(general_list[2])\n",
+    "for i in range(2, len(general_list)-3, 3):\n",
+    "    browsing_list.append(general_list[i+3])\n",
+    "# и посчитаем\n",
+    "unq_user = len(set(user_list))\n",
+    "int_lst = [int(x) for x in browsing_list]\n",
+    "browsing = sum(int_lst)\n",
+    "unq_per_user = browsing/unq_user\n",
+    "print(unq_per_user)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Задание 6"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# довольно громоздко, но короче мне уже лениво думать\n",
+    "set_of_numbers = input('введите ряд чисел ')\n",
+    "list_numbers = set_of_numbers.split()\n",
+    "int_lst = [int(x) for x in list_numbers]\n",
+    "final_list = []\n",
+    "unq_set_of_numbers = set(int_lst)\n",
+    "for i in range(0, len(int_lst)):\n",
+    "    if int_lst.count(int_lst[i]) > 1:\n",
+    "        final_list.append(int_lst[i])\n",
+    "# можно использовать множества, но хочется сохранить порядок без\n",
+    "# импорта всяких умных функций из разных библиотек\n",
+    "unique = []\n",
+    "[unique.append(item) for item in final_list if item not in unique]\n",
+    "print(unique)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
