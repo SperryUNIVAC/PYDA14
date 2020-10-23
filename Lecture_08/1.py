@@ -8,7 +8,8 @@ def max_rate():
 # заодно посмотрел на структуру того, чего вытащил
     with open('data.txt', 'w') as f:
         json.dump(full_data, f, ensure_ascii=False)
-    max_rate_code = max(full_data['Valute'], key=lambda v: full_data['Valute'][v]['Value'])
+    datadict = self.datadict['Valute']
+    max_rate_code = max(datadict.items(), key=lambda x: x[1]['Value'] / x[1]['Nominal'])[1]['Name']
     print(max_rate_code) 
 
 
