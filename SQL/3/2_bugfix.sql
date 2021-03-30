@@ -1,39 +1,48 @@
+set search_path to "dvd-rental"
 /* классический метод. Меня дико смутило что там всего 2 магазина и 
  * я чето очень протупил и не вдуплил - а из чего там вообще выбирать */
-select 
+SELECT
 	customer.store_id,
-	count(customer.store_id) as customer_count
-from "dvd-rental".customer
-group by customer.store_id
-having count(customer.store_id) > 300;
+	count(customer.store_id) AS customer_count
+FROM
+	"dvd-rental".customer
+GROUP BY
+	customer.store_id
+HAVING
+	count(customer.store_id) > 300;
 
 /*стало интересно понял ли я логику и я написал это же через подзапросы*/
-select 
+SELECT
 	customer_count
-from (select 
+FROM
+	(
+	SELECT
 		customer.store_id,
-		count(customer.store_id) as customer_count
-	from "dvd-rental".customer
-	group by customer.store_id)
-as cust_coun
-where cust_coun.customer_count > 300;
+		count(customer.store_id) AS customer_count
+	FROM
+		"dvd-rental".customer
+	GROUP BY
+		customer.store_id) AS cust_coun
+WHERE
+	cust_coun.customer_count > 300;
 
 /*уфф еле вдуплил как последовательно джойнить.*/
-select 
+SELECT
 	cs.customer_id,
-	cs.first_name, 
+	cs.first_name,
 	cs.last_name,
 	ad.address,
 	ad.district,
 	ct.city,
 	cn.country
-from "dvd-rental".customer as cs
-join "dvd-rental".address as ad 
-	on cs.address_id = ad.address_id	
-join "dvd-rental".city as ct 
-	on ad.city_id = ct.city_id
-join "dvd-rental".country as cn
-	on ct.country_id = cn.country_id;	
+FROM
+	"dvd-rental".customer AS cs
+JOIN "dvd-rental".address AS ad ON
+	cs.address_id = ad.address_id
+JOIN "dvd-rental".city AS ct ON
+	ad.city_id = ct.city_id
+JOIN "dvd-rental".country AS cn ON
+	ct.country_id = cn.country_id;	
 	
 /*со следующими у меня возникла проблема
  * я понятия не имею как вобще работает логика операторов в SQL ((
@@ -55,18 +64,19 @@ join "dvd-rental".country as cn
  * */
 
 
-select 
+SELECT
 	cs.store_id,
-	sf.first_name, 
+	sf.first_name,
 	sf.last_name,
 	ct.city
-from "dvd-rental".customer as cs
-join "dvd-rental".store as st 
-	on cs.store_id = st.store_id	
-join "dvd-rental".staff as sf
-	on	cs.store_id = sf.store_id
-join "dvd-rental".address as ad 
-	on sf.address_id = ad.address_id	
-join "dvd-rental".city as ct 
-	on ad.city_id = ct.city_id
+FROM
+	"dvd-rental".customer AS cs
+JOIN "dvd-rental".store AS st ON
+	cs.store_id = st.store_id
+JOIN "dvd-rental".staff AS sf ON
+	cs.store_id = sf.store_id
+JOIN "dvd-rental".address AS ad ON
+	sf.address_id = ad.address_id
+JOIN "dvd-rental".city AS ct ON
+	ad.city_id = ct.city_id
 
