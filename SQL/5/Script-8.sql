@@ -48,3 +48,43 @@ refresh materialized view customers_like_Behind_the_Scenes
 
 select * from customers_like_Behind_the_Scenes
 
+/*оказалось, что своим умом я допер до самой плохой практики выколупывания значения, просто потому что 
+ * не прошарил, какой функцией расколупать массив на предмет наличия в нем элемента ((
+ * зато смастерил этот костыль своим умом)
+ * вот три варианта более прямых
+ */
+
+
+select
+	customer_id,
+	count(customer_id) as Behind_the_Scenes 
+from rental
+join inventory as i using(inventory_id)
+join film as f using(film_id)
+where array_position(special_features, 'Behind the Scenes') is not null
+group by customer_id 
+
+
+
+select
+	customer_id,
+	count(customer_id) as Behind_the_Scenes 
+from rental
+join inventory as i using(inventory_id)
+join film as f using(film_id)
+where 'Behind the Scenes' = any(special_features)
+group by customer_id 
+
+
+select
+	customer_id,
+	count(customer_id) as Behind_the_Scenes 
+from rental
+join inventory as i using(inventory_id)
+join film as f using(film_id)
+where  special_features && array['Behind the Scenes']
+group by customer_id 
+
+
+	
+
