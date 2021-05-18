@@ -1,0 +1,389 @@
+{
+  "bytes": 32507382,
+  "datahub": {
+    "created": "2018-08-22T01:09:55.681888",
+    "findability": "published",
+    "flowid": "machine-learning/adult/4",
+    "modified": "2018-09-06T12:27:25.946193",
+    "owner": "machine-learning",
+    "ownerid": "machine-learning"
+  },
+  "description": "The resources for this dataset can be found at https://www.openml.org/d/179\n\nAuthor: Ronny Kohavi an",
+  "hash": "54407ffe448c410e19eb289fe8d1352e",
+  "id": "machine-learning/adult",
+  "licenses": [
+    {
+      "name": "ODC-PDDL",
+      "path": "http://opendatacommons.org/licenses/pddl/",
+      "title": "Open Data Commons Public Domain Dedication and License"
+    }
+  ],
+  "name": "adult",
+  "resources": [
+    {
+      "bytes": 5162011,
+      "datahub": {
+        "type": "original"
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/19637eed23a4df49437a143b0f38c0b8.arff",
+      "encoding": "ISO-8859-1",
+      "format": "arff",
+      "name": "adult_arff",
+      "path": "archive/adult_arff.arff",
+      "pathType": "local",
+      "profile": "data-resource"
+    },
+    {
+      "bytes": 5154109,
+      "datahub": {
+        "type": "original"
+      },
+      "dialect": {
+        "delimiter": ",",
+        "quoteChar": "\""
+      },
+      "dpp:streamedFrom": "https://s3.amazonaws.com/rawstore.datahub.io/c8c87915d76926896a93604761460f22.csv",
+      "encoding": "ISO-8859-1",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "name": "adult_original",
+      "path": "archive/adult.csv",
+      "pathType": "local",
+      "profile": "data-resource",
+      "schema": {
+        "fields": [
+          {
+            "format": "default",
+            "name": "age",
+            "type": "number"
+          },
+          {
+            "format": "default",
+            "name": "workclass",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "fnlwgt",
+            "type": "number"
+          },
+          {
+            "format": "default",
+            "name": "education",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "education-num",
+            "type": "number"
+          },
+          {
+            "format": "default",
+            "name": "marital-status",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "occupation",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "relationship",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "race",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "sex",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "capitalgain",
+            "type": "number"
+          },
+          {
+            "format": "default",
+            "name": "capitalloss",
+            "type": "number"
+          },
+          {
+            "format": "default",
+            "name": "hoursperweek",
+            "type": "number"
+          },
+          {
+            "format": "default",
+            "name": "native-country",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "class",
+            "type": "string"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    },
+    {
+      "bytes": 744,
+      "datahub": {
+        "type": "derived/report"
+      },
+      "description": "Validation report for tabular data",
+      "dpp:streamedFrom": "/tmp/tmpffdf4501/machine-learning/adult/validation_report/data/2cc7e0ffcec7c42a24c72b3b4b7a3a59/validation_report.json",
+      "format": "json",
+      "hash": "2cc7e0ffcec7c42a24c72b3b4b7a3a59",
+      "name": "validation_report",
+      "path": "data/validation_report.json",
+      "profile": "data-resource"
+    },
+    {
+      "bytes": 5202952,
+      "datahub": {
+        "derivedFrom": [
+          "adult"
+        ],
+        "type": "derived/csv"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "delimiter": ",",
+        "doubleQuote": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "/tmp/tmpffdf4501/machine-learning/adult/adult_csv/data/c8c87915d76926896a93604761460f22/adult_csv.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "c8c87915d76926896a93604761460f22",
+      "mediatype": "text/csv",
+      "name": "adult_csv",
+      "path": "data/adult_csv.csv",
+      "pathType": "local",
+      "profile": "data-resource",
+      "quotechar": "\"",
+      "rowcount": 48842,
+      "schema": {
+        "fields": [
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "age",
+            "type": "number"
+          },
+          {
+            "format": "default",
+            "name": "workclass",
+            "type": "string"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "fnlwgt",
+            "type": "number"
+          },
+          {
+            "format": "default",
+            "name": "education",
+            "type": "string"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "education-num",
+            "type": "number"
+          },
+          {
+            "format": "default",
+            "name": "marital-status",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "occupation",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "relationship",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "race",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "sex",
+            "type": "string"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "capitalgain",
+            "type": "number"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "capitalloss",
+            "type": "number"
+          },
+          {
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "hoursperweek",
+            "type": "number"
+          },
+          {
+            "format": "default",
+            "name": "native-country",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "class",
+            "type": "string"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 16986653,
+      "datahub": {
+        "derivedFrom": [
+          "adult"
+        ],
+        "type": "derived/json"
+      },
+      "delimiter": ",",
+      "dialect": {
+        "delimiter": ",",
+        "quoteChar": "\""
+      },
+      "dpp:streamedFrom": "/tmp/tmpffdf4501/machine-learning/adult/adult_json/data/4d14292e519b642f8eed5987303a8e7d/adult_json.json",
+      "encoding": "utf-8",
+      "format": "json",
+      "hash": "4d14292e519b642f8eed5987303a8e7d",
+      "mediatype": "text/csv",
+      "name": "adult_json",
+      "path": "data/adult_json.json",
+      "pathType": "local",
+      "profile": "data-resource",
+      "quotechar": "\"",
+      "rowcount": 48842,
+      "schema": {
+        "fields": [
+          {
+            "format": "default",
+            "name": "age",
+            "type": "number"
+          },
+          {
+            "format": "default",
+            "name": "workclass",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "fnlwgt",
+            "type": "number"
+          },
+          {
+            "format": "default",
+            "name": "education",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "education-num",
+            "type": "number"
+          },
+          {
+            "format": "default",
+            "name": "marital-status",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "occupation",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "relationship",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "race",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "sex",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "capitalgain",
+            "type": "number"
+          },
+          {
+            "format": "default",
+            "name": "capitalloss",
+            "type": "number"
+          },
+          {
+            "format": "default",
+            "name": "hoursperweek",
+            "type": "number"
+          },
+          {
+            "format": "default",
+            "name": "native-country",
+            "type": "string"
+          },
+          {
+            "format": "default",
+            "name": "class",
+            "type": "string"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      },
+      "signed": true
+    },
+    {
+      "bytes": 913,
+      "dpp:streamedFrom": "/tmp/tmpzjm4zq3a/README.md",
+      "format": "md",
+      "name": "readme",
+      "path": "README.md"
+    }
+  ],
+  "title": "Adult"
+}
